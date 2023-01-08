@@ -3,14 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutModule } from '@angular/cdk/layout';
+import { AngularMaterialModule } from './modules/angular-material.module';
+import { ThemeTogglerComponent } from './components/theme-toggler/theme-toggler.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ThemeTogglerComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,12 @@
+<input
+  type="checkbox"
+  class="checkbox"
+  id="checkbox"
+  [checked]="isLightTheme"
+  (change)="toggleTheme()"
+/>
+<label for="checkbox" class="label">
+  <mat-icon class="material-icons">dark_mode</mat-icon>
+  <mat-icon class="material-icons">light_mode</mat-icon>
+  <span class="ball"></span>
+</label>
