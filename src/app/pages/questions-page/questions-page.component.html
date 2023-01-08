@@ -1,0 +1,70 @@
+<div class="flex-row justify-between my-1">
+  <h3 matLine>Questions</h3>
+  <button mat-flat-button color="primary">Ask Question</button>
+</div>
+<div class="flex-col gap-1">
+  <mat-card *ngFor="let question of questions">
+    <div class="flex-row gap-1">
+      <div class="flex-1 flex-col items-end gap-1">
+        <div>
+          {{ question.votes }} vote{{
+            question.votes > 1 || question.votes < -1 ? "s" : ""
+          }}
+        </div>
+
+        <div *ngIf="question.answers.length === 0; else hasAnswer">
+          0 answers
+        </div>
+        <ng-template #hasAnswer>
+          <button
+            *ngIf="question.hasAcceptedAnswer; else notHasAnswer"
+            mat-flat-button
+            color="accent"
+          >
+            <span class="flex-row items-center">
+              <mat-icon>done</mat-icon>
+              <span
+                >{{ question.answers.length }} answer{{
+                  question.answers.length > 1 ? "s" : ""
+                }}</span
+              >
+            </span>
+          </button>
+          <ng-template #notHasAnswer>
+            <button mat-stroked-button color="accent">
+              {{ question.answers.length }} answer{{
+                question.answers.length > 1 ? "s" : ""
+              }}
+            </button>
+          </ng-template>
+        </ng-template>
+
+        <div>{{ question.views }} view{{ question.views > 1 ? "s" : "" }}</div>
+      </div>
+
+      <div class="flex-4 flex-col gap-1">
+        <a class="question-title" matLine routerLink="/">{{
+          question.title
+        }}</a>
+        <div class="flex-row gap-1">
+          <mat-chip-list>
+            <mat-chip *ngFor="let tag of question.tags">
+              {{ tag }}
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+        <div class="flex-row gap-1 person items-center">
+          <div class="flex-row items-center gap-1/2">
+            <mat-icon>person</mat-icon>
+            <span>{{ question.askedBy }}</span>
+          </div>
+          asked
+          <div class="flex-row items-center gap-1/2">
+            <mat-icon>access_time</mat-icon>
+            <span>{{ question.askedOn | date : "short" }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AngularMaterialModule } from './modules/angular-material.module';
 import { ThemeTogglerComponent } from './components/theme-toggler/theme-toggler.component';
+import { QuestionsPageComponent } from './pages/questions-page/questions-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThemeTogglerComponent,
+    QuestionsPageComponent,
   ],
   imports: [
     BrowserModule,

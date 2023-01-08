@@ -1,10 +1,13 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <span>QandA</span>
-      <span class="spacer"></span>
-      <app-theme-toggler></app-theme-toggler>
+      <div class="container flex-row justify-between p-0">
+        <span>QandA</span>
+        <app-theme-toggler></app-theme-toggler>
+      </div>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <main class="container py-2">
+      <router-outlet></router-outlet>
+    </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
