@@ -1,6 +1,8 @@
-<div class="flex-row justify-between my-1">
-  <h3 matLine>Questions</h3>
-  <button mat-flat-button color="primary">Ask Question</button>
+<div class="flex-row justify-between mb-1">
+  <h3 matLine>{{ "questions_page.page_title" | translate }}</h3>
+  <button mat-flat-button color="primary">
+    {{ "questions_page.page_title" | translate }}
+  </button>
 </div>
 <div class="flex-col gap-1">
   <mat-card *ngFor="let question of questions">

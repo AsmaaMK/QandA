@@ -9,6 +9,10 @@ import { AngularMaterialModule } from './modules/angular-material.module';
 import { ThemeTogglerComponent } from './components/theme-toggler/theme-toggler.component';
 import { QuestionsPageComponent } from './pages/questions-page/questions-page.component';
 
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +24,22 @@ import { QuestionsPageComponent } from './pages/questions-page/questions-page.co
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}

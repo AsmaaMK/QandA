@@ -1,0 +1,9 @@
+{
+  "toolbar": {
+    "title": "QandA"
+  },
+  "questions_page": {
+    "page_title": "Questions",
+    "ask_btn": "Ask question"
+  }
+}
